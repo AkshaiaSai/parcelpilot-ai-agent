@@ -15,9 +15,9 @@ RUN pip install --no-cache-dir -r requirements.txt sentence-transformers langcha
 # Copy application files
 COPY . .
 
-# Run data ingestion on build or container entry
+# Run data ingestion on build
 RUN chmod +x scripts/setup.sh && ./scripts/setup.sh
 
 EXPOSE 8000
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
