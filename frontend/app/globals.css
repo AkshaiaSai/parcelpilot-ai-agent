@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 25% 96%; /* #F8F6F0 Soft Light Base */
+    --foreground: 120 4% 12%; /* #1C1E1C Deep Charcoal */
+
+    --card: 0 0% 100%; /* #FFFFFF Pure White Surfaces */
+    --card-foreground: 120 4% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 4% 12%;
+
+    --primary: 10 75% 48%; /* #D44326 Confident Coral/Terracotta */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 18% 92%; /* #ECE8E0 Soft Inset */
+    --secondary-foreground: 120 6% 18%;
+
+    --muted: 40 15% 88%;
+    --muted-foreground: 110 5% 42%;
+
+    --accent: 158 40% 22%; /* #214F3D Pine Forest */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 65% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 15% 85%; /* #DED9CE Crisp Border */
+    --input: 40 15% 85%;
+    --ring: 10 75% 48%;
+
+    --success: 151 45% 30%;
+    --success-bg: 145 35% 95%;
+    --success-border: 147 30% 80%;
+
+    --warning: 32 85% 44%;
+    --warning-bg: 36 70% 96%;
+    --warning-border: 35 55% 82%;
+
+    --info: 196 60% 32%;
+    --info-bg: 195 45% 95%;
+    --info-border: 195 35% 82%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 220 13% 9%; /* #12151A Deep Slate Charcoal */
+    --foreground: 210 20% 96%; /* #F0F4F8 Clean Crisp White */
+
+    --card: 220 13% 13%; /* #1A1E24 Raised Surfaces */
+    --card-foreground: 210 20% 96%;
+
+    --popover: 220 13% 15%;
+    --popover-foreground: 210 20% 96%;
+
+    --primary: 12 85% 58%; /* #F05B43 Bright Coral */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 12% 18%; /* #252B33 Inset Stone */
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 220 12% 22%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 160 55% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 75% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 12% 20%; /* #29303A Clean Slate Border */
+    --input: 220 12% 20%;
+    --ring: 12 85% 58%;
+
+    --success: 148 55% 48%;
+    --success-bg: 145 40% 14%;
+    --success-border: 147 30% 24%;
+
+    --warning: 35 90% 55%;
+    --warning-bg: 36 50% 14%;
+    --warning-border: 35 40% 25%;
+
+    --info: 198 75% 52%;
+    --info-bg: 195 50% 14%;
+    --info-border: 195 35% 25%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-sans selection:bg-primary/20 selection:text-primary transition-colors duration-150;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Crisp Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.6);
+}
+
+/* Clean, Highly-Readable Typography for AI Responses */
+.prose-editorial {
+  @apply text-foreground text-[13.5px] leading-relaxed font-sans;
+}
+
+.prose-editorial p {
+  @apply mb-2.5 last:mb-0 leading-[1.6] text-foreground/90 font-normal;
+}
+
+.prose-editorial h1, .prose-editorial h2, .prose-editorial h3, .prose-editorial h4 {
+  @apply text-foreground font-sans tracking-tight font-bold mt-3.5 mb-1.5 first:mt-0;
+}
+
+.prose-editorial h1 {
+  @apply text-base border-b border-border pb-1 font-bold;
+}
+.prose-editorial h2 {
+  @apply text-xs uppercase tracking-wider text-primary font-mono font-bold mt-3;
+}
+.prose-editorial h3 {
+  @apply text-sm font-semibold;
+}
+
+.prose-editorial ul {
+  @apply list-disc list-outside pl-4 mb-2.5 space-y-1 text-foreground/85;
+}
+.prose-editorial ol {
+  @apply list-decimal list-outside pl-4 mb-2.5 space-y-1 text-foreground/85;
+}
+.prose-editorial li {
+  @apply text-foreground/85 leading-normal;
+}
+
+.prose-editorial strong {
+  @apply text-foreground font-semibold;
+}
+
+.prose-editorial code {
+  @apply px-1.5 py-0.5 rounded-md font-mono text-[11.5px] bg-secondary border border-border text-primary font-medium;
+}
+
+.prose-editorial pre {
+  @apply p-3 my-2.5 rounded-xl bg-secondary/80 border border-border font-mono text-xs overflow-x-auto text-foreground leading-normal;
+}
+
+.prose-editorial blockquote {
+  @apply pl-3 border-l-2 border-primary text-muted-foreground my-2 bg-primary/5 py-1 text-[13px] rounded-r;
+}
+
+.prose-editorial table {
+  @apply w-full text-left text-xs my-2.5 border-collapse rounded-xl border border-border overflow-hidden bg-card shadow-sm;
+}
+
+.prose-editorial th {
+  @apply bg-secondary text-muted-foreground font-mono font-semibold uppercase tracking-wider px-3 py-2 border-b border-border text-[10.5px];
+}
+
+.prose-editorial td {
+  @apply px-3 py-2 border-b border-border/70 text-foreground font-mono text-[12px];
+}

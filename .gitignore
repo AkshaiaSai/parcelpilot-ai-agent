@@ -1,0 +1,80 @@
+# ==========================================
+# ParcelPilot AI Agent - Git Ignore Rules
+# ==========================================
+
+# 1. Environment & API Keys (Critical Security)
+.env
+.env.*
+!.env.example
+!.env.local.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+frontend/.env
+frontend/.env.local
+frontend/.env.*
+!frontend/.env.example
+!frontend/.env.local.example
+
+# 2. Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/venv/
+backend/.venv/
+venv/
+.venv/
+env/
+ENV/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 3. Testing, Coverage & Typecheck Caches
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# 4. Node.js & Next.js Build Artifacts
+frontend/node_modules/
+node_modules/
+frontend/.next/
+.next/
+frontend/out/
+out/
+frontend/build/
+build/
+.turbo/
+
+# 5. Runtime Storage, ChromaDB & SQLite Data
+# Note: Data ingestion scripts build these from ParcelPilot_Assessment_Data.xlsx and docs/
+backend/storage/parcelpilot.db
+backend/storage/vectorstore/
+*.db
+*.sqlite
+*.sqlite3
+
+# 6. Logs & Debugging
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 7. Operating System & IDE Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.pem
+.idea/
+.vscode/
+*.swp
+*.swo
